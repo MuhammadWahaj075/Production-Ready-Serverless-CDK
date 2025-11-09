@@ -1,4 +1,4 @@
-# Welcome to your CDK JavaScript project
+# Welcome to My CDK JavaScript project
 
 This is a blank project for CDK development with JavaScript.
 
