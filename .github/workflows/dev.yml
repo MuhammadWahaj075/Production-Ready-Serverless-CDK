@@ -27,11 +27,6 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v2
         with:
           aws-region: us-east-1
-          # IMPORTANT: this must be an IAM role ARN (not a Cognito user-pool ARN).
-          # Create an IAM Role in your account that trusts GitHub's OIDC provider
-          # then replace the placeholder below with that role's ARN, for example:
-          #   arn:aws:iam::939825335448:role/GitHubActionsRole
-          # More info: https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services
           role-to-assume: arn:aws:iam::939825335448:role/GitHubActionsRole
           role-session-name: GithubActionsSession
 
