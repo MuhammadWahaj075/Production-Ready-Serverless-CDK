@@ -59,7 +59,7 @@ const viaHttp = async (relPath, method, opts) => {
     const res = await httpReq
     return respondFrom(res)
   } catch (err) {
-    if (err.response.status) {
+    if (err.response && err.response.status) {
       return {
         statusCode: err.response.status,
         headers: err.response.headers
