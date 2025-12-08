@@ -2,7 +2,7 @@ name: deploy dev
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   deploy:
@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: "18"
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
@@ -38,6 +38,9 @@ jobs:
 
       - name: deploy to dev
         run: cdk deploy --all --require-approval never
+
+      - name: Make script executable
+        run: chmod +x export-env.sh
 
       - name: export env
         run: ./export-env.sh ApiStack-dev us-east-1
