@@ -1,4 +1,5 @@
 const fs = require("fs")
+const path = require("path")
 const Mustache = require('mustache')
 const http = require('axios')
 const aws4 = require('aws4')
@@ -11,7 +12,8 @@ const awsRegion = process.env.AWS_REGION
 
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
-const template = fs.readFileSync('static/index.html', 'utf-8')
+const templatePath = path.join(__dirname, '..', 'static', 'index.html')
+const template = fs.readFileSync(templatePath, 'utf-8')
 
 const getRestaurants = async () => {
   console.log(`loading restaurants from ${restaurantsApiRoot}...`)
